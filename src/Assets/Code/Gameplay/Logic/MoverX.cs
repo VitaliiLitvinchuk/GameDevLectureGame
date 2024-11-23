@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code
+namespace Assets.Code.Gameplay.Logic
 {
     internal class MoverX : MonoBehaviour
     {
@@ -11,6 +11,7 @@ namespace Code
         private float _speed;
 
         public float Speed => _rigidbody2D.velocity.x;
+        public bool IsMoving => _rigidbody2D.velocity.x != 0;
 
         public void Move(float input)
         {
