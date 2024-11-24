@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5257647865086611706}
   - component: {fileID: 4061517306982536147}
   - component: {fileID: 5562410517411105694}
+  - component: {fileID: -1755236906258795165}
   m_Layer: 7
   m_Name: Mace
   m_TagString: Untagged
@@ -158,7 +159,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4699307936223670964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b581bdfe3f43c64188990470559b540, type: 3}
+  m_Script: {fileID: 11500000, guid: 66a5c0168893ff6489d116ca6f3b99a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _y: -7
+--- !u!114 &-1755236906258795165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699307936223670964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845bbd9358bf6194681f3b00839113c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthToSubstract: 10
