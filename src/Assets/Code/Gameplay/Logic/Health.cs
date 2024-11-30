@@ -17,6 +17,10 @@ namespace Assets.Code.Gameplay.Logic
             MaxHealth = _currentHealth;
         }
 
+        public event Action Changed;
+
+        public event Action Death;
+
         public void Substract(float healthToSubstract)
         {
             if (healthToSubstract <= 0)
@@ -24,8 +28,13 @@ namespace Assets.Code.Gameplay.Logic
 
             _currentHealth -= healthToSubstract;
 
-            if (_currentHealth < 0)
+            Changed?.Invoke();
+
+            if (_currentHealth <= 0)
+            {
                 _currentHealth = 0;
+                Death?.Invoke();
+            }
         }
     }
 }

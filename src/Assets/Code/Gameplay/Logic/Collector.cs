@@ -6,8 +6,13 @@ namespace Assets.Code.Gameplay.Logic
     {
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent(out ICollectable collectable))
-                collectable.Collect(this);
+            if (!collision.gameObject.TryGetComponent(out ICollectable collectable))
+                return;
+
+            if (collectable.IsCollected)
+                return;
+
+            collectable.Collect(this);
         }
     }
 }
