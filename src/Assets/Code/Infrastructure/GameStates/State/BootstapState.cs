@@ -1,7 +1,7 @@
 using Assets.Code.Infrastructure.GameStates.Api;
 using Assets.Code.Infrastructure.GameStates.StateMachine;
 using Assets.Code.Infrastructure.Services.Scene;
-using UnityEngine;
+using Assets.Code.Infrastructure.Services.StaticData;
 
 namespace Assets.Code.Infrastructure.GameStates.State
 {
@@ -9,20 +9,22 @@ namespace Assets.Code.Infrastructure.GameStates.State
     {
         private readonly IStateMachine _stateMachine;
         private readonly ISceneLoader _sceneLoader;
-        private readonly string LevelName = "Level";
         private readonly string BootstrapSceneName = "BootstrapScene";
+        private readonly IStaticDataService _staticDataService;
 
-        public BootstrapState(IStateMachine stateMachine, ISceneLoader sceneLoader)
+        public BootstrapState(IStateMachine stateMachine, ISceneLoader sceneLoader, IStaticDataService staticDataService)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
+            _staticDataService = staticDataService;
         }
 
         public void Enter()
         {
             _sceneLoader.Load(BootstrapSceneName);
-            _sceneLoader.Load(LevelName);
-            _stateMachine.Enter<LevelState>();
+            _staticDataService.LoadAll();
+
+            _stateMachine.Enter<MenuState>();
         }
     }
 }

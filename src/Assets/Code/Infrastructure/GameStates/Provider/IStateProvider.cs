@@ -4,6 +4,6 @@ namespace Assets.Code.Infrastructure.GameStates.Provider
 {
     public interface IStateProvider
     {
-        TState GetState<TState>() where TState : IEnterableState;
+        TState GetState<TState>() where TState : class, IState;
     }
 }

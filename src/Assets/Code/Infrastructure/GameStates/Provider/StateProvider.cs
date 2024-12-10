@@ -12,7 +12,7 @@ namespace Assets.Code.Infrastructure.GameStates.Provider
             _container = container;
         }
 
-        public TState GetState<TState>() where TState : IEnterableState
+        public TState GetState<TState>() where TState : class, IState
         {
             return _container.Resolve<TState>();
         }

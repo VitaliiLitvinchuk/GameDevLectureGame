@@ -3,18 +3,15 @@ using UnityEngine;
 
 namespace Assets.Code.Gameplay.Logic
 {
-    internal sealed class Health : MonoBehaviour
+    public class Health : MonoBehaviour
     {
-        [SerializeField]
-        private float _currentHealth;
-
-        public float CurrentHealth => _currentHealth;
+        public float CurrentHealth;
 
         public float MaxHealth { get; internal set; }
 
         private void Start()
         {
-            MaxHealth = _currentHealth;
+            MaxHealth = CurrentHealth;
         }
 
         public event Action Changed;
@@ -26,13 +23,13 @@ namespace Assets.Code.Gameplay.Logic
             if (healthToSubstract <= 0)
                 throw new ArgumentException($"Health to substract must be greater than 0.", nameof(healthToSubstract));
 
-            _currentHealth -= healthToSubstract;
+            CurrentHealth -= healthToSubstract;
 
             Changed?.Invoke();
 
-            if (_currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
-                _currentHealth = 0;
+                CurrentHealth = 0;
                 Death?.Invoke();
             }
         }

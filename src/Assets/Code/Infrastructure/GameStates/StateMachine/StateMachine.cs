@@ -14,7 +14,7 @@ namespace Assets.Code.Infrastructure.GameStates.StateMachine
             _stateProvider = stateProvider;
         }
 
-        public void Enter<TState>() where TState : IEnterableState
+        public void Enter<TState>() where TState : class, IEnterableState
         {
             var state = GetState<TState>();
 
@@ -24,7 +24,17 @@ namespace Assets.Code.Infrastructure.GameStates.StateMachine
             state.Enter();
         }
 
-        private TState GetState<TState>() where TState : IEnterableState
+        public void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadedEnterableState<TPayload>
+        {
+            IPayloadedEnterableState<TPayload> state = GetState<TState>();
+
+            if (_currentState is IExitableState exitableState)
+                exitableState.Exit();
+
+            state.Enter(payload);
+        }
+
+        private TState GetState<TState>() where TState : class, IState
         {
             return _stateProvider.GetState<TState>();
         }
