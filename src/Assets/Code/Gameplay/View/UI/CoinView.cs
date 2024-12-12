@@ -1,5 +1,4 @@
-using System;
-using Assets.Code.Gameplay.Logic;
+using Assets.Code.Gameplay.Services.Wallet;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -10,12 +9,9 @@ namespace Assets.Code.Gameplay.View.UI
     {
         [SerializeField]
         private TextMeshProUGUI _text;
-        private Wallet _wallet;
 
-        internal void SetUp(Wallet wallet)
-        {
-            _wallet = wallet;
-        }
+        [Inject]
+        private IWalletService _wallet;
 
         private void Update()
         {

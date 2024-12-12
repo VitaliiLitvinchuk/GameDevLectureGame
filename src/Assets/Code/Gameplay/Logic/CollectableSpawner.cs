@@ -19,13 +19,11 @@ namespace Assets.Code.Gameplay.Logic
         [SerializeField]
         private float _randomDeltaX = 2f;
 
-        private IRandomService _randomService;
+        [Inject]
+        private readonly IRandomService _randomService;
 
         [Inject]
-        private void Constructor(IRandomService randomService)
-        {
-            _randomService = randomService;
-        }
+        private readonly IInstantiator _instantiator;
 
         private void Start()
         {
@@ -46,7 +44,7 @@ namespace Assets.Code.Gameplay.Logic
 
         private void SpawnEnemy()
         {
-            Instantiate(_collectable, transform.position.WithX(GetRandomX()), Quaternion.identity, gameObject.transform);
+            _instantiator.InstantiatePrefab(_collectable, transform.position.WithX(GetRandomX()), Quaternion.identity, gameObject.transform);
         }
 
         private float GetRandomX()

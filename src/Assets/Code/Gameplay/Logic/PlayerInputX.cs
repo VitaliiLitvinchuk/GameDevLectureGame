@@ -8,13 +8,9 @@ namespace Assets.Code.Gameplay.Logic
     {
         [SerializeField]
         private MoverX _moverX;
-        private IInputService _inputService;
 
         [Inject]
-        private void Constructor(IInputService inputService)
-        {
-            _inputService = inputService;
-        }
+        private IInputService _inputService;
 
         private void Update()
         {

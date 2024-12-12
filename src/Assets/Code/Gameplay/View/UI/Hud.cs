@@ -11,9 +11,8 @@ namespace Assets.Code.Gameplay.View.UI
         [SerializeField]
         private HealthBar _healthBar;
 
-        public void SetUp(Wallet wallet, Health health)
+        public void SetUp(Health health)
         {
-            _coinView.SetUp(wallet);
             _healthBar.SetUp(health);
         }
     }
