@@ -1,4 +1,5 @@
 using Assets.Code.Gameplay.Services.Wallet;
+using Assets.Code.Gameplay.View;
 using Assets.Code.Infrastructure.Services.SaveLoad;
 using UnityEngine;
 using Zenject;
@@ -7,6 +8,15 @@ namespace Assets.Code.Gameplay.Logic
 {
     public class Coin : MonoBehaviour, ICollectable
     {
+        [SerializeField]
+        private MoveFadeDestroyer _moveFadeDestroyer;
+
+        [SerializeField]
+        private Rigidbody2D _rigidbody2D;
+
+        [SerializeField]
+        private BoxCollider2D _boxCollider2D;
+
         public bool IsCollected { get; private set; }
 
         [Inject]
@@ -18,7 +28,12 @@ namespace Assets.Code.Gameplay.Logic
         {
             _walletService?.AddCoin();
             _saveLoadService?.SavePlayerProgress();
-            Destroy(gameObject);
+            IsCollected = true;
+
+            _rigidbody2D.isKinematic = true;
+            _rigidbody2D.velocity = Vector2.zero;
+            _boxCollider2D.enabled = false;
+            _moveFadeDestroyer.Destroy();
         }
     }
 }

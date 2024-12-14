@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Assets.Code.Data;
 using Assets.Code.Gameplay.Services.Wallet;
+using Assets.Code.Infrastructure.Services.PlayerInventory;
 using Assets.Code.Infrastructure.Services.SaveLoad;
 using Assets.Code.Infrastructure.Services.StaticData;
 using Assets.Code.StaticData;
@@ -14,13 +15,15 @@ namespace Assets.Code.Infrastructure.Services.Shop
         private readonly IStaticDataService _staticDataService;
         private readonly IWalletService _walletService;
         private readonly ISaveLoadService _saveLoadService;
-        private List<HatTypeId> _ownedHats = new();
+        private readonly IPlayerInventoryService _playerInventoryService;
 
-        public ShopService(IStaticDataService staticDataService, IWalletService walletService, ISaveLoadService saveLoadService)
+        public ShopService(IStaticDataService staticDataService, IWalletService walletService, ISaveLoadService saveLoadService,
+            IPlayerInventoryService playerInventoryService)
         {
             _staticDataService = staticDataService;
             _walletService = walletService;
             _saveLoadService = saveLoadService;
+            _playerInventoryService = playerInventoryService;
         }
 
         public void BuyItem(ShopItemType type, object identifier)
@@ -32,8 +35,13 @@ namespace Assets.Code.Infrastructure.Services.Shop
             {
                 case ShopItemType.Hat:
                     var hatTypeId = (HatTypeId)identifier;
-                    _ownedHats.Add(hatTypeId);
-                    _walletService.Purchase(_staticDataService.GetHatConfig(hatTypeId).Price);
+                    var hatConfig = _staticDataService.GetHatConfig(hatTypeId);
+                    _walletService.Purchase(hatConfig.Price);
+
+                    if (hatConfig.HatTypeId != HatTypeId.Unknown)
+                    {
+                        _playerInventoryService.AddHat(hatConfig.HatTypeId);
+                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
@@ -51,20 +59,10 @@ namespace Assets.Code.Infrastructure.Services.Shop
             };
         }
 
-        public void Read(PlayerProgress playerProgress)
-        {
-            _ownedHats = playerProgress.OwnedHats;
-        }
-
-        public void Write(PlayerProgress playerProgress)
-        {
-            playerProgress.OwnedHats = _ownedHats;
-        }
-
         private bool CanBuyHat(HatTypeId hatTypeId)
         {
             HatConfig config = _staticDataService.GetHatConfig(hatTypeId);
-            return _walletService.IsEnoughMoney(config.Price) && !_ownedHats.Contains(hatTypeId);
+            return _walletService.IsEnoughMoney(config.Price) && !_playerInventoryService.OwnedHats.Contains(hatTypeId);
         }
     }
 }

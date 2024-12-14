@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crown
   m_EditorClassIdentifier: 
   Name: CrownHat
-  Sprite: {fileID: 21300000, guid: 3105ecce0ff9acc4ca416fd2d8175900, type: 3}
+  Sprite: {fileID: 1059213892, guid: 3105ecce0ff9acc4ca416fd2d8175900, type: 3}
   Price: 100
   HatTypeId: 3
   Type: 1

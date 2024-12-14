@@ -1,5 +1,6 @@
 using System;
 using Assets.Code.Data;
+using Assets.Code.Infrastructure.Services.PlayerInventory;
 using Assets.Code.Infrastructure.Services.Shop;
 using TMPro;
 using UnityEngine;
@@ -21,6 +22,9 @@ namespace Assets.Code.Gameplay.View.UI.Shop
 
         [Inject]
         private readonly IShopService _shopService;
+
+        [Inject]
+        private readonly IPlayerInventoryService _playerInventoryService;
 
         private ShopItemType _type;
 

@@ -1089,9 +1089,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc0fb19c6d9dc4409192d7373368968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToSpawn: 0.1
-  _collectable: {fileID: 5237967535367607814, guid: 1edfe131259a2d3499befc871dbe5502, type: 3}
+  _timeToSpawn: 0.3
   _randomDeltaX: 8
+  _collectables:
+  - {fileID: 5237967535367607814, guid: 1edfe131259a2d3499befc871dbe5502, type: 3}
+  - {fileID: 4699307936223670964, guid: 32164fb8e39bdef4bac1a2f85a5c1704, type: 3}
 --- !u!4 &1985295596
 Transform:
   m_ObjectHideFlags: 0

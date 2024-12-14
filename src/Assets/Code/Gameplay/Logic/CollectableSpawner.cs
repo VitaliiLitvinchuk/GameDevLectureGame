@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Assets.Code.Extensions;
 using Assets.Code.Infrastructure.Services.Random;
 using Unity.VisualScripting;
@@ -14,10 +15,10 @@ namespace Assets.Code.Gameplay.Logic
         private float _timeToSpawn = 5f;
 
         [SerializeField]
-        private GameObject _collectable = null;
+        private float _randomDeltaX = 2f;
 
         [SerializeField]
-        private float _randomDeltaX = 2f;
+        private List<GameObject> _collectables;
 
         [Inject]
         private readonly IRandomService _randomService;
@@ -27,7 +28,7 @@ namespace Assets.Code.Gameplay.Logic
 
         private void Start()
         {
-            if (_collectable == null)
+            if (_collectables.Count == 0)
                 throw new InvalidOperationException("Enemy prefab is not set in the Enemies spawner.");
 
             StartCoroutine(SpawnEnemyCoroutine());
@@ -44,7 +45,9 @@ namespace Assets.Code.Gameplay.Logic
 
         private void SpawnEnemy()
         {
-            _instantiator.InstantiatePrefab(_collectable, transform.position.WithX(GetRandomX()), Quaternion.identity, gameObject.transform);
+            GameObject collectable = _randomService.ChooseFromList(_collectables);
+
+            _instantiator.InstantiatePrefab(collectable, transform.position.WithX(GetRandomX()), Quaternion.identity, gameObject.transform);
         }
 
         private float GetRandomX()
