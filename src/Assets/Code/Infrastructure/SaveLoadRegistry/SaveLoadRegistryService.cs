@@ -20,12 +20,4 @@ namespace Assets.Code.Infrastructure.SaveLoadRegistry
             _progressWriter.Add(progressWriter);
         }
     }
-
-    public interface ISaveLoadRegistryService
-    {
-        IEnumerable<IReadProgress> ProgressReaders { get; }
-        IEnumerable<IWriteProgress> ProgressWriters { get; }
-        void RegisterAsProgressReader(IReadProgress progressReader);
-        void RegisterAsProgressWriter(IWriteProgress progressWriter);
-    }
 }

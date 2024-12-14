@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Assets.Code.Data;
 using Assets.Code.StaticData;
 
 namespace Assets.Code.Infrastructure.Services.StaticData
@@ -8,5 +10,7 @@ namespace Assets.Code.Infrastructure.Services.StaticData
         HudConfig HudConfig { get; }
         void LoadAll();
         LevelData GetLevelData(string levelName);
+        IEnumerable<HatConfig> GetHatConfigs();
+        HatConfig GetHatConfig(HatTypeId hatTypeId);
     }
 }

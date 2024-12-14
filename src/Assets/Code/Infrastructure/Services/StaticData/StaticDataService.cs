@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Code.Data;
 using Assets.Code.StaticData;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Assets.Code.Infrastructure.Services.StaticData
     public class StaticDataService : IStaticDataService
     {
         private Dictionary<string, LevelData> _levels;
+        private Dictionary<HatTypeId, HatConfig> _hats;
 
         public PlayerConfig PlayerConfig { get; private set; }
 
@@ -19,6 +21,22 @@ namespace Assets.Code.Infrastructure.Services.StaticData
             LoadPlayerConfig();
             LoadHudConfig();
             LoadLevels();
+            LoadHats();
+        }
+
+        public HatConfig GetHatConfig(HatTypeId hatTypeId)
+        {
+            return _hats.GetValueOrDefault(hatTypeId);
+        }
+
+        public IEnumerable<HatConfig> GetHatConfigs()
+        {
+            return _hats.Values;
+        }
+
+        private void LoadHats()
+        {
+            _hats = Resources.LoadAll<HatConfig>("Configs/ShopItems/Hats").ToDictionary(x => x.HatTypeId);
         }
 
         public LevelData GetLevelData(string levelName) => _levels[levelName];

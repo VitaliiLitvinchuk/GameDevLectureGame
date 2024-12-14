@@ -1,3 +1,4 @@
+using System;
 using Assets.Code.Data;
 
 namespace Assets.Code.Gameplay.Services.Wallet
@@ -9,6 +10,19 @@ namespace Assets.Code.Gameplay.Services.Wallet
         public int Balance => _balance;
 
         public void AddCoin() => _balance++;
+
+        public bool IsEnoughMoney(int money)
+        {
+            return Balance >= money;
+        }
+
+        public void Purchase(int price)
+        {
+            if (!IsEnoughMoney(price))
+                throw new InvalidOperationException("Not enough money to purchase item.");
+
+            _balance -= price;
+        }
 
         public void Read(PlayerProgress playerProgress)
         {

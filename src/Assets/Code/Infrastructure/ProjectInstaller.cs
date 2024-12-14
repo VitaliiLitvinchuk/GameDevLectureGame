@@ -10,6 +10,7 @@ using Assets.Code.Infrastructure.Services.Progress;
 using Assets.Code.Infrastructure.Services.Random;
 using Assets.Code.Infrastructure.Services.SaveLoad;
 using Assets.Code.Infrastructure.Services.Scene;
+using Assets.Code.Infrastructure.Services.Shop;
 using Assets.Code.Infrastructure.Services.StaticData;
 using Zenject;
 
@@ -38,6 +39,7 @@ namespace Assets.Code.Infrastructure
         private void BindGameplayServices()
         {
             Container.Bind<IWalletService>().To<WalletService>().AsSingle();
+            Container.Bind<IShopService>().To<ShopService>().AsSingle();
         }
 
         private void BindFactories()

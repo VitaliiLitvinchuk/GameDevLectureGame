@@ -7,5 +7,7 @@ namespace Assets.Code.Gameplay.Services.Wallet
         int Balance { get; }
 
         void AddCoin();
+        bool IsEnoughMoney(int money);
+        void Purchase(int price);
     }
 }
