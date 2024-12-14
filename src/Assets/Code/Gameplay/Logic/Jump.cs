@@ -38,7 +38,7 @@ namespace Assets.Code.Gameplay.Logic
 
         private void Update()
         {
-            if (_jumpLimit >= _jumpCount)
+            if (_jumpLimit > _jumpCount)
             {
                 if (Time.time > _nextJumpTime && _inputService.GetJump())
                 {
