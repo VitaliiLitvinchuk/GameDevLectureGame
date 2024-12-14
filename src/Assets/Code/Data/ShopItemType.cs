@@ -4,5 +4,6 @@ namespace Assets.Code.Data
     {
         Unknown = 0,
         Hat = 1,
+        PlayerFeature = 2,
     }
 }

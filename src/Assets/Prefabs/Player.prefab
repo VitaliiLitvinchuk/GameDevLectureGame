@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2838041387756237313}
   - component: {fileID: 2182951220811113852}
   - component: {fileID: 8961957988865733118}
+  - component: {fileID: 4548714291629166499}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -273,6 +274,24 @@ MonoBehaviour:
   _rigidbody: {fileID: 5080968233859930499}
   _collider2D: {fileID: 1812662027204293037}
   _forceOnDeath: 10
+--- !u!114 &4548714291629166499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947293903508965284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa12cc1b6e8aeb449efb5f3fbf358d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForce: 5
+  _rigidbody2D: {fileID: 5080968233859930499}
+  _jumpDelay: 0.2554
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &7346761952663896982
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,6 +35,16 @@ namespace Assets.Code.Gameplay.View.UI.Shop
                 shopItem.Bought += OnBought;
                 shopItem.UpdateView(config.Sprite, config.Price, config.Type, config.HatTypeId);
             }
+
+            IEnumerable<PlayerFeatureConfig> featuresConfigs = _staticDataService.GetPlayerFeatureConfigs();
+
+            foreach (PlayerFeatureConfig config in featuresConfigs)
+            {
+                ShopItem shopItem = _instantiator.InstantiatePrefabForComponent<ShopItem>(_shopItemPrefab, _contentContainer);
+                _shopItems.Add(shopItem);
+                shopItem.Bought += OnBought;
+                shopItem.UpdateView(config.Sprite, config.Price, config.Type, config.FeatureType);
+            }
         }
 
         private void UpdateShopItemsView()
@@ -53,6 +63,11 @@ namespace Assets.Code.Gameplay.View.UI.Shop
                     HatConfig config = _staticDataService.GetHatConfig((HatTypeId)shopItem.Identifier);
 
                     shopItem.UpdateView(config.Sprite, config.Price, config.Type, config.HatTypeId);
+                    break;
+                case ShopItemType.PlayerFeature:
+                    PlayerFeatureConfig playerFeatureConfig = _staticDataService.GetPlayerFeatureConfig((PlayerFeatureType)shopItem.Identifier);
+
+                    shopItem.UpdateView(playerFeatureConfig.Sprite, playerFeatureConfig.Price, playerFeatureConfig.Type, playerFeatureConfig.FeatureType);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

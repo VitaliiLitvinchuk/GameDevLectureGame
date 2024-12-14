@@ -10,6 +10,7 @@ namespace Assets.Code.Data
         internal static PlayerProgress New() => new();
         public int Coins;
         public List<HatTypeId> OwnedHats = new();
+        public Dictionary<PlayerFeatureType, int> PlayerFeatures = new();
         public HatTypeId SelectedHat = HatTypeId.Unknown;
     }
 }

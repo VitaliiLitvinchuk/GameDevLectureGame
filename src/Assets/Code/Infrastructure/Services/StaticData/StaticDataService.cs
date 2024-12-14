@@ -11,6 +11,7 @@ namespace Assets.Code.Infrastructure.Services.StaticData
     {
         private Dictionary<string, LevelData> _levels;
         private Dictionary<HatTypeId, HatConfig> _hats;
+        private Dictionary<PlayerFeatureType, PlayerFeatureConfig> _features;
 
         public PlayerConfig PlayerConfig { get; private set; }
 
@@ -22,6 +23,7 @@ namespace Assets.Code.Infrastructure.Services.StaticData
             LoadHudConfig();
             LoadLevels();
             LoadHats();
+            LoadFeatures();
         }
 
         public HatConfig GetHatConfig(HatTypeId hatTypeId)
@@ -34,12 +36,27 @@ namespace Assets.Code.Infrastructure.Services.StaticData
             return _hats.Values;
         }
 
+        public PlayerFeatureConfig GetPlayerFeatureConfig(PlayerFeatureType featureType)
+        {
+            return _features.GetValueOrDefault(featureType);
+        }
+
+        public IEnumerable<PlayerFeatureConfig> GetPlayerFeatureConfigs()
+        {
+            return _features.Values;
+        }
+
+        public LevelData GetLevelData(string levelName) => _levels[levelName];
+
+        private void LoadFeatures()
+        {
+            _features = Resources.LoadAll<PlayerFeatureConfig>("Configs/ShopItems/PlayerFeatures").ToDictionary(x => x.FeatureType);
+        }
+
         private void LoadHats()
         {
             _hats = Resources.LoadAll<HatConfig>("Configs/ShopItems/Hats").ToDictionary(x => x.HatTypeId);
         }
-
-        public LevelData GetLevelData(string levelName) => _levels[levelName];
 
         private void LoadLevels()
         {

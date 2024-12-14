@@ -12,5 +12,7 @@ namespace Assets.Code.Infrastructure.Services.StaticData
         LevelData GetLevelData(string levelName);
         IEnumerable<HatConfig> GetHatConfigs();
         HatConfig GetHatConfig(HatTypeId hatTypeId);
+        IEnumerable<PlayerFeatureConfig> GetPlayerFeatureConfigs();
+        PlayerFeatureConfig GetPlayerFeatureConfig(PlayerFeatureType featureType);
     }
 }

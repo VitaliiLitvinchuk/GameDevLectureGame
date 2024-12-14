@@ -10,6 +10,8 @@ namespace Assets.Code.Infrastructure.Services.PlayerInventory
 
         public List<HatTypeId> OwnedHats { get; private set; } = new();
 
+        public Dictionary<PlayerFeatureType, int> PlayerFeatures = new();
+
         public HatTypeId SelectedHat { get; private set; } = HatTypeId.Unknown;
 
         public PlayerInventoryService(ISaveLoadService saveLoad)
@@ -22,6 +24,23 @@ namespace Assets.Code.Infrastructure.Services.PlayerInventory
             OwnedHats.Add(hatTypeId);
         }
 
+        public void AddPlayerFeature(PlayerFeatureType featureType)
+        {
+            if (PlayerFeatures.ContainsKey(featureType))
+            {
+                PlayerFeatures[featureType] += 1;
+            }
+            else
+            {
+                PlayerFeatures.Add(featureType, 1);
+            }
+        }
+
+        public int GetPlayerFeatureCount(PlayerFeatureType featureType)
+        {
+            return PlayerFeatures.GetValueOrDefault(featureType);
+        }
+
         public bool HasAnyHat()
         {
             return OwnedHats.Count > 0;
@@ -30,6 +49,7 @@ namespace Assets.Code.Infrastructure.Services.PlayerInventory
         public void Read(PlayerProgress playerProgress)
         {
             OwnedHats = playerProgress.OwnedHats;
+            PlayerFeatures = playerProgress.PlayerFeatures;
             SelectedHat = playerProgress.SelectedHat;
         }
 
@@ -53,6 +73,7 @@ namespace Assets.Code.Infrastructure.Services.PlayerInventory
         {
             playerProgress.OwnedHats = OwnedHats;
             playerProgress.SelectedHat = SelectedHat;
+            playerProgress.PlayerFeatures = PlayerFeatures;
         }
     }
 }

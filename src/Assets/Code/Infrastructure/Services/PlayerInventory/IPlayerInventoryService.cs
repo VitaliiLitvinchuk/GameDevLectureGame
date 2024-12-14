@@ -10,7 +10,9 @@ namespace Assets.Code.Infrastructure.Services.PlayerInventory
         HatTypeId SelectedHat { get; }
         List<HatTypeId> OwnedHats { get; }
         void AddHat(HatTypeId hatTypeId);
+        void AddPlayerFeature(PlayerFeatureType featureType);
         bool HasAnyHat();
         void SelectNextHat();
+        int GetPlayerFeatureCount(PlayerFeatureType featureType);
     }
 }

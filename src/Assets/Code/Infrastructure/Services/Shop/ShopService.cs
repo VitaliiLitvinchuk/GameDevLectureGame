@@ -43,6 +43,12 @@ namespace Assets.Code.Infrastructure.Services.Shop
                         _playerInventoryService.AddHat(hatConfig.HatTypeId);
                     }
                     break;
+                case ShopItemType.PlayerFeature:
+                    var playerFeatureType = (PlayerFeatureType)identifier;
+                    var playerFeatureConfig = _staticDataService.GetPlayerFeatureConfig(playerFeatureType);
+                    _walletService.Purchase(playerFeatureConfig.Price);
+                    _playerInventoryService.AddPlayerFeature(playerFeatureConfig.FeatureType);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
@@ -55,8 +61,15 @@ namespace Assets.Code.Infrastructure.Services.Shop
             return type switch
             {
                 ShopItemType.Hat => CanBuyHat((HatTypeId)identifier),
+                ShopItemType.PlayerFeature => CanBuyPlayerFeature((PlayerFeatureType)identifier),
                 _ => false,
             };
+        }
+
+        private bool CanBuyPlayerFeature(PlayerFeatureType playerFeatureType)
+        {
+            PlayerFeatureConfig playerFeatureConfig = _staticDataService.GetPlayerFeatureConfig(playerFeatureType);
+            return _walletService.IsEnoughMoney(playerFeatureConfig.Price);
         }
 
         private bool CanBuyHat(HatTypeId hatTypeId)

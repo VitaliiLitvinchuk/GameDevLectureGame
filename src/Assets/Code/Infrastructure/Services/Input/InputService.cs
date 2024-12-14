@@ -1,8 +1,11 @@
+using UnityEngine;
+
 namespace Assets.Code.Infrastructure.Services.Input
 {
     public class InputService : IInputService
     {
-        private const string AxisName = "Horizontal";
+        private const string HorizontalAxisName = "Horizontal";
+        private const string JumpButtonName = "Jump";
         private bool _enabled = false;
 
         public void Enable() => _enabled = true;
@@ -13,7 +16,15 @@ namespace Assets.Code.Infrastructure.Services.Input
         {
             if (!_enabled) return 0f;
 
-            return UnityEngine.Input.GetAxis(AxisName);
+            return UnityEngine.Input.GetAxis(HorizontalAxisName);
+        }
+
+        public bool GetJump()
+        {
+            if (!_enabled) return false;
+
+            return UnityEngine.Input.GetButton(JumpButtonName);
         }
     }
+
 }
