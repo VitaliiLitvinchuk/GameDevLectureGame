@@ -24,19 +24,28 @@ namespace Assets.Code.Infrastructure.Factories
         public GameObject CreatePlayer(Vector3 position)
         {
             GameObject player = _instantiator.InstantiatePrefab(_staticDataService.PlayerConfig.PlayerPrefab, position, Quaternion.identity, null);
-
             player.GetComponent<Health>().CurrentHealth = _staticDataService.PlayerConfig.StartHealth;
             player.GetComponentInChildren<Hat>().SetHat(_playerInventoryService.SelectedHat);
 
+            CreateMenus(player);
+
             return player;
+        }
+
+        private void CreateMenus(GameObject player)
+        {
+            GameObject pauseMenu = _instantiator.InstantiatePrefab(_staticDataService.PlayerConfig.PauseMenuPrefab, Vector3.zero, Quaternion.identity, player.transform);
+
+            GameObject deathMenu = _instantiator.InstantiatePrefab(_staticDataService.PlayerConfig.DeathMenuPrefab, Vector3.zero, Quaternion.identity, player.transform);
+
+            player.GetComponent<Death>().deathMenu = deathMenu.GetComponent<DeathMenu>();
         }
 
         public GameObject CreateHud(GameObject player)
         {
             Health health = player.GetComponent<Health>();
 
-            var hud = _instantiator.InstantiatePrefabForComponent<Hud>(_staticDataService.HudConfig.HudPrefab);
-
+            Hud hud = _instantiator.InstantiatePrefabForComponent<Hud>(_staticDataService.HudConfig.HudPrefab, player.transform);
             hud.SetUp(health);
 
             return hud.gameObject;

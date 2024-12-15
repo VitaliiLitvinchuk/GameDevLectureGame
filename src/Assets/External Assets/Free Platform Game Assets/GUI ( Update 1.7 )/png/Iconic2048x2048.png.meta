@@ -194,10 +194,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_4
+      name: asd
       rect:
         serializedVersion: 2
-        x: 738
+        x: 741
         y: 1847
         width: 128
         height: 129
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_6
+      name: VolumeOn
       rect:
         serializedVersion: 2
         x: 1033
@@ -404,12 +404,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_14
+      name: Resume
       rect:
         serializedVersion: 2
-        x: 442
+        x: 439
         y: 1699
-        width: 128
+        width: 132
         height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -488,7 +488,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_18
+      name: VolumeOff
       rect:
         serializedVersion: 2
         x: 1033
@@ -740,7 +740,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_30
+      name: Replay
       rect:
         serializedVersion: 2
         x: 1033
@@ -992,7 +992,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_42
+      name: Home
       rect:
         serializedVersion: 2
         x: 1033
@@ -1076,11 +1076,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_46
+      name: Settings
       rect:
         serializedVersion: 2
-        x: 1625
-        y: 1403
+        x: 1632
+        y: 1396
         width: 129
         height: 129
       alignment: 0
@@ -1412,7 +1412,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_62
+      name: Pause
       rect:
         serializedVersion: 2
         x: 442
@@ -1496,7 +1496,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_66
+      name: MusicOn
       rect:
         serializedVersion: 2
         x: 1033
@@ -3008,7 +3008,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_138
+      name: MusicOff
       rect:
         serializedVersion: 2
         x: 1033
@@ -3396,6 +3396,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Home: -300844888
       Iconic2048x2048_0: 46714210
       Iconic2048x2048_1: -809122552
       Iconic2048x2048_10: 1292884860
@@ -3440,9 +3441,7 @@ TextureImporter:
       Iconic2048x2048_135: 146464317
       Iconic2048x2048_136: -1716604718
       Iconic2048x2048_137: 1837797013
-      Iconic2048x2048_138: -693960003
       Iconic2048x2048_139: 724850671
-      Iconic2048x2048_14: -764059296
       Iconic2048x2048_140: 1161338431
       Iconic2048x2048_141: -915293897
       Iconic2048x2048_142: -1811308509
@@ -3462,7 +3461,6 @@ TextureImporter:
       Iconic2048x2048_155: -1416929835
       Iconic2048x2048_16: 1326265888
       Iconic2048x2048_17: 422559037
-      Iconic2048x2048_18: 2109624856
       Iconic2048x2048_19: -1610938636
       Iconic2048x2048_2: 1543649664
       Iconic2048x2048_20: 561636701
@@ -3476,7 +3474,6 @@ TextureImporter:
       Iconic2048x2048_28: -2036574967
       Iconic2048x2048_29: -1521845736
       Iconic2048x2048_3: 558889404
-      Iconic2048x2048_30: 1373646202
       Iconic2048x2048_31: 83223526
       Iconic2048x2048_32: 1091495502
       Iconic2048x2048_33: -1828367188
@@ -3486,14 +3483,11 @@ TextureImporter:
       Iconic2048x2048_37: 81271662
       Iconic2048x2048_38: -867943391
       Iconic2048x2048_39: 540461148
-      Iconic2048x2048_4: 1010425701
       Iconic2048x2048_40: -1443641554
       Iconic2048x2048_41: -2022356035
-      Iconic2048x2048_42: -300844888
       Iconic2048x2048_43: -901711721
       Iconic2048x2048_44: -376050341
       Iconic2048x2048_45: -712378046
-      Iconic2048x2048_46: 1697304198
       Iconic2048x2048_47: 1481140496
       Iconic2048x2048_48: 210996010
       Iconic2048x2048_49: -357457889
@@ -3508,14 +3502,11 @@ TextureImporter:
       Iconic2048x2048_57: 30580096
       Iconic2048x2048_58: 74635346
       Iconic2048x2048_59: 109182466
-      Iconic2048x2048_6: 625949801
       Iconic2048x2048_60: -1368840949
       Iconic2048x2048_61: 590865337
-      Iconic2048x2048_62: 1188125514
       Iconic2048x2048_63: 1652791933
       Iconic2048x2048_64: 1699069262
       Iconic2048x2048_65: 889542204
-      Iconic2048x2048_66: -145792570
       Iconic2048x2048_67: -1853394123
       Iconic2048x2048_68: 1133026454
       Iconic2048x2048_69: 1198108969
@@ -3552,6 +3543,15 @@ TextureImporter:
       Iconic2048x2048_97: -184247043
       Iconic2048x2048_99: 508778658
       JumpSprite: -377446590
+      MusicOff: -693960003
+      MusicOn: -145792570
+      Pause: 1188125514
+      Replay: 1373646202
+      Resume: -764059296
+      Settings: 1697304198
+      VolumeOff: 2109624856
+      VolumeOn: 625949801
+      asd: 1010425701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

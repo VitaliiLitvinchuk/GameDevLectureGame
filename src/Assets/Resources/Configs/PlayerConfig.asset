@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 3947293903508965284, guid: ac7cb75023d148449b2d99bf74b6182e, type: 3}
+  DeathMenuPrefab: {fileID: 3913616734932309874, guid: a9bc9ce1b82f1ca4d9b24630a3389c54, type: 3}
+  PauseMenuPrefab: {fileID: 5700464626110361382, guid: 569d456afb80d3b49b9b2cf22e11521b, type: 3}
   StartHealth: 100

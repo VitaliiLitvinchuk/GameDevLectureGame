@@ -273,7 +273,9 @@ MonoBehaviour:
   _health: {fileID: 2182951220811113852}
   _rigidbody: {fileID: 5080968233859930499}
   _collider2D: {fileID: 1812662027204293037}
+  _renderer: {fileID: 4169450335226881733}
   _forceOnDeath: 10
+  deathMenu: {fileID: 0}
 --- !u!114 &4548714291629166499
 MonoBehaviour:
   m_ObjectHideFlags: 0

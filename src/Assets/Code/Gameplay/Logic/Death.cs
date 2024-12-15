@@ -1,11 +1,10 @@
-using System;
+using Assets.Code.Gameplay.View.UI;
 using Assets.Code.Infrastructure.Services.Input;
 using UnityEngine;
 using Zenject;
 
 namespace Assets.Code.Gameplay.Logic
 {
-
     public class Death : MonoBehaviour
     {
         [SerializeField]
@@ -18,14 +17,24 @@ namespace Assets.Code.Gameplay.Logic
         private Collider2D _collider2D;
 
         [SerializeField]
+        private SpriteRenderer _renderer;
+
+        [SerializeField]
         private float _forceOnDeath;
 
-        private IInputService _inputService;
-
         [Inject]
-        private void Constructor(IInputService inputService)
+        private readonly IInputService _inputService;
+
+        public DeathMenu deathMenu;
+        private bool onceDeathMenu = false;
+
+        private void Update()
         {
-            _inputService = inputService;
+            if (!_renderer.isVisible && !onceDeathMenu)
+            {
+                deathMenu.OnDeath();
+                onceDeathMenu = true;
+            }
         }
 
         private void OnValidate()
@@ -43,6 +52,7 @@ namespace Assets.Code.Gameplay.Logic
         private void OnDestroy()
         {
             _health.Death -= OnDeath;
+            deathMenu = null;
         }
 
         private void OnDeath()

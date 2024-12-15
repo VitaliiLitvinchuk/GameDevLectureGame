@@ -30,6 +30,9 @@ namespace Assets.Code.Gameplay.Logic
             _saveLoadService?.SavePlayerProgress();
             IsCollected = true;
 
+            if (_moveFadeDestroyer == null)
+                return;
+
             _rigidbody2D.isKinematic = true;
             _rigidbody2D.velocity = Vector2.zero;
             _boxCollider2D.enabled = false;

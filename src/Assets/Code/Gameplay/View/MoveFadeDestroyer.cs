@@ -1,6 +1,5 @@
 using UnityEngine;
 using DG.Tweening;
-using System;
 
 namespace Assets.Code.Gameplay.View
 {
@@ -15,12 +14,18 @@ namespace Assets.Code.Gameplay.View
         [SerializeField]
         private float _moveDeltaY = -1f;
 
+        private Sequence _sequence;
+
+        private void OnDestroy()
+        {
+            _sequence?.Kill();
+        }
+
         public void Destroy()
         {
-            Sequence sequence = DOTween.Sequence()
+            _sequence = DOTween.Sequence()
                 .Join(Fade())
                 .Join(Move())
-                .OnComplete(() => Destroy(gameObject))
                 .Play();
         }
 
