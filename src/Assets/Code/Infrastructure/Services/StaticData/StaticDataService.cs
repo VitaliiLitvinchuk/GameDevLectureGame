@@ -12,9 +12,8 @@ namespace Assets.Code.Infrastructure.Services.StaticData
         private Dictionary<string, LevelData> _levels;
         private Dictionary<HatTypeId, HatConfig> _hats;
         private Dictionary<PlayerFeatureType, PlayerFeatureConfig> _features;
-
+        public SawConfig SawConfig { get; private set; }
         public PlayerConfig PlayerConfig { get; private set; }
-
         public HudConfig HudConfig { get; private set; }
 
         public void LoadAll()
@@ -24,6 +23,7 @@ namespace Assets.Code.Infrastructure.Services.StaticData
             LoadLevels();
             LoadHats();
             LoadFeatures();
+            LoadSawConfig();
         }
 
         public HatConfig GetHatConfig(HatTypeId hatTypeId)
@@ -66,6 +66,11 @@ namespace Assets.Code.Infrastructure.Services.StaticData
         private void LoadHudConfig()
         {
             HudConfig = Resources.Load<HudConfig>("Configs/HudConfig");
+        }
+
+        private void LoadSawConfig()
+        {
+            SawConfig = Resources.Load<SawConfig>("Configs/SawConfig");
         }
 
         private void LoadPlayerConfig()

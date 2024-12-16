@@ -8,6 +8,7 @@ namespace Assets.Code.Infrastructure.Services.StaticData
     {
         PlayerConfig PlayerConfig { get; }
         HudConfig HudConfig { get; }
+        SawConfig SawConfig { get; }
         void LoadAll();
         LevelData GetLevelData(string levelName);
         IEnumerable<HatConfig> GetHatConfigs();

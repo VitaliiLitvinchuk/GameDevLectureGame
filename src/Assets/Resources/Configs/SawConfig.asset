@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf2abccd58f5384cb02eb2c4d7be37d, type: 3}
+  m_Name: SawConfig
+  m_EditorClassIdentifier: 
+  SawPrefab: {fileID: 7114493819390152792, guid: 63e622b4e47030743a85253d8e787ce9, type: 3}
+  DangerIcon: {fileID: 2583087187003204444, guid: ff0711561de95e7409f9d7f69e3e5721, type: 3}
+  ShowDangerTime: 2
+  DurationOut: 1
+  DurationExist: 3
+  DurationIn: 1
+  DamageInterval: 0.2
+  DamageAmount: 5

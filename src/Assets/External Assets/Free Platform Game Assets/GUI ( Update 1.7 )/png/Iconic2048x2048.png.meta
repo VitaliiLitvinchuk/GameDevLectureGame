@@ -782,7 +782,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_32
+      name: Danger Icon
       rect:
         serializedVersion: 2
         x: 1329
@@ -3396,6 +3396,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Danger Icon: 1091495502
       Home: -300844888
       Iconic2048x2048_0: 46714210
       Iconic2048x2048_1: -809122552
@@ -3475,7 +3476,6 @@ TextureImporter:
       Iconic2048x2048_29: -1521845736
       Iconic2048x2048_3: 558889404
       Iconic2048x2048_31: 83223526
-      Iconic2048x2048_32: 1091495502
       Iconic2048x2048_33: -1828367188
       Iconic2048x2048_34: 800649276
       Iconic2048x2048_35: 1890476216
