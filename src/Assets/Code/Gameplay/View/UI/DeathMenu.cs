@@ -1,3 +1,4 @@
+using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.GameStates.State;
 using Assets.Code.Infrastructure.GameStates.StateMachine;
 using UnityEngine;
@@ -23,12 +24,14 @@ namespace Assets.Code.Gameplay.View.UI
 
         public void Home()
         {
+            AudioManager.instance.Play(SoundType.PlayButton);
             _stateMachine.Enter<LoadProgressState>();
             Time.timeScale = 1;
         }
 
         public void Restart()
         {
+            AudioManager.instance.Play(SoundType.PlayButton);
             _stateMachine.Enter<LoadLevelState, string>("Level");
             Time.timeScale = 1;
         }

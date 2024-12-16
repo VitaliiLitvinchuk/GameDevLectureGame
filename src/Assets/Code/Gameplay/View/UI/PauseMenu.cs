@@ -1,3 +1,4 @@
+using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.GameStates.State;
 using Assets.Code.Infrastructure.GameStates.StateMachine;
 using UnityEngine;
@@ -30,6 +31,7 @@ namespace Assets.Code.Gameplay.View.UI
 
         public void Pause()
         {
+            AudioManager.instance.Play(SoundType.PlayButton);
             _contentPanel.SetActive(true);
             _shadowPanel.SetActive(true);
             Time.timeScale = 0;
@@ -37,12 +39,14 @@ namespace Assets.Code.Gameplay.View.UI
 
         public void Home()
         {
+            AudioManager.instance.Play(SoundType.PlayButton);
             _stateMachine.Enter<LoadProgressState>();
             Time.timeScale = 1;
         }
 
         public void Resume()
         {
+            AudioManager.instance.Play(SoundType.PlayButton);
             _contentPanel.SetActive(false);
             _shadowPanel.SetActive(false);
             Time.timeScale = 1;
@@ -50,6 +54,7 @@ namespace Assets.Code.Gameplay.View.UI
 
         public void Restart()
         {
+            AudioManager.instance.Play(SoundType.PlayButton);
             _stateMachine.Enter<LoadLevelState, string>("Level");
             Time.timeScale = 1;
         }
