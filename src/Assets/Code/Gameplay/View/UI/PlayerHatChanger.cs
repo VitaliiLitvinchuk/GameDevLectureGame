@@ -1,5 +1,6 @@
 using System;
 using Assets.Code.Data;
+using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.Services.PlayerInventory;
 using Assets.Code.Infrastructure.Services.StaticData;
 using Assets.Code.StaticData;
@@ -44,7 +45,7 @@ namespace Assets.Code.Gameplay.View.UI
                 return;
 
             _playerInventoryService.SelectNextHat();
-
+            AudioManager.instance.Play(SoundType.HatChange);
             UpdateView();
         }
 

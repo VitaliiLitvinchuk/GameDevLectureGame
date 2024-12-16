@@ -1,4 +1,5 @@
 using Assets.Code.Data;
+using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.Services.Input;
 using Assets.Code.Infrastructure.Services.PlayerInventory;
 using UnityEditor.UIElements;
@@ -42,6 +43,7 @@ namespace Assets.Code.Gameplay.Logic
             {
                 if (Time.time > _nextJumpTime && _inputService.GetJump())
                 {
+                    AudioManager.instance.Play(SoundType.Jump);
                     _nextJumpTime = Time.time + _jumpDelay;
                     _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
                     _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);

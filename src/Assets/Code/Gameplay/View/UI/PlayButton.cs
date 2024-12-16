@@ -1,3 +1,4 @@
+using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.GameStates.State;
 using Assets.Code.Infrastructure.GameStates.StateMachine;
 using UnityEngine;
@@ -13,13 +14,8 @@ namespace Assets.Code.Gameplay.View.UI
         [SerializeField]
         private Button _button;
 
-        private IStateMachine _stateMachine;
-
         [Inject]
-        private void Constructor(IStateMachine stateMachine)
-        {
-            _stateMachine = stateMachine;
-        }
+        private readonly IStateMachine _stateMachine;
 
         private void Awake()
         {
@@ -33,6 +29,8 @@ namespace Assets.Code.Gameplay.View.UI
 
         private void OnButtonClicked()
         {
+            AudioManager.instance.Play(SoundType.PlayButton);
+            AudioManager.instance.ChangeSceneSound(SoundType.LevelMusic);
             _stateMachine.Enter<LoadLevelState, string>(LevelName);
         }
     }

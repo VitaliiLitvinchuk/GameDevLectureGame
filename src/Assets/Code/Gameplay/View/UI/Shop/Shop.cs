@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Assets.Code.Data;
+using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.Services.SaveLoad;
 using Assets.Code.Infrastructure.Services.StaticData;
 using Assets.Code.StaticData;
@@ -76,6 +77,7 @@ namespace Assets.Code.Gameplay.View.UI.Shop
 
         private void OnBought()
         {
+            AudioManager.instance.Play(SoundType.Buy);
             UpdateShopItemsView();
         }
     }

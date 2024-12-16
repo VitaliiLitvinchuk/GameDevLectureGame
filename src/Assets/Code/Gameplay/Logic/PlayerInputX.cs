@@ -1,3 +1,4 @@
+using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.Services.Input;
 using UnityEngine;
 using Zenject;
@@ -15,7 +16,7 @@ namespace Assets.Code.Gameplay.Logic
         private void Update()
         {
             float movement = _inputService.GetMovement();
-
+            AudioManager.instance.Play(SoundType.Run);
             _moverX.Move(movement);
         }
     }

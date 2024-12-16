@@ -1,4 +1,5 @@
 using Assets.Code.Gameplay.Services.Wallet;
+using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Gameplay.View;
 using Assets.Code.Infrastructure.Services.SaveLoad;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace Assets.Code.Gameplay.Logic
             _walletService?.AddCoin();
             _saveLoadService?.SavePlayerProgress();
             IsCollected = true;
+            AudioManager.instance.Play(SoundType.PickupCoin);
 
             if (_moveFadeDestroyer == null)
                 return;

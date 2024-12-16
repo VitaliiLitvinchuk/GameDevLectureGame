@@ -517,6 +517,143 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741009564}
   m_CullTransparentMesh: 1
+--- !u!1 &788193858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788193859}
+  - component: {fileID: 788193860}
+  - component: {fileID: 788193861}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788193859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788193858}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788193860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788193858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a139c93ebf3d2c64087077b5178bc46a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneSound: 0
+  _sounds:
+  - type: 3
+    clip: {fileID: 8300000, guid: d706d9cf38d61f6b8b44537fbeed1051, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - type: 1
+    clip: {fileID: 8300000, guid: 5c20f8509d7d267e3ab3cd4bc77d927c, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - type: 2
+    clip: {fileID: 8300000, guid: b3956d694e38d9109bc53c2b350682be, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - type: 4
+    clip: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - type: 5
+    clip: {fileID: 8300000, guid: 0ad591428b0c18c4da51fe3bf98dbc63, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - type: 5
+    clip: {fileID: 8300000, guid: 0ad591428b0c18c4da51fe3bf98dbc63, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - type: 6
+    clip: {fileID: 8300000, guid: d95bc57d46a79a2e9ad32883943a7edc, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.1
+    pitch: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - type: 7
+    clip: {fileID: 8300000, guid: 89ae9828e2f8913779b44d7d553bad9a, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - type: 8
+    clip: {fileID: 8300000, guid: 559c54b861f8793e4a0f39bd744fb162, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - type: 9
+    clip: {fileID: 8300000, guid: c4144d4cc19f5a5c59e411658518d9dc, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - type: 10
+    clip: {fileID: 8300000, guid: 904aab8dd539b6339b59bc7bbcce3d9c, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!114 &788193861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788193858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d3c8295a639e94e82b9b1f0d817cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
 --- !u!1 &993325481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,3 +1635,4 @@ SceneRoots:
   - {fileID: 301408994}
   - {fileID: 1333184343}
   - {fileID: 572521273}
+  - {fileID: 788193859}

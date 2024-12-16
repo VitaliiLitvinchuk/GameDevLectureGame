@@ -1,4 +1,5 @@
 using System;
+using Assets.Code.Gameplay.Sounds;
 using UnityEngine;
 
 namespace Assets.Code.Gameplay.Logic
@@ -24,11 +25,12 @@ namespace Assets.Code.Gameplay.Logic
                 throw new ArgumentException($"Health to substract must be greater than 0.", nameof(healthToSubstract));
 
             CurrentHealth -= healthToSubstract;
-
+            AudioManager.instance.Play(SoundType.TakeDamage);
             Changed?.Invoke();
 
             if (CurrentHealth <= 0)
             {
+                AudioManager.instance.Play(SoundType.Death);
                 CurrentHealth = 0;
                 Death?.Invoke();
             }
