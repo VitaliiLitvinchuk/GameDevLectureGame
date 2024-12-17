@@ -1146,6 +1146,8 @@ MonoBehaviour:
   _collectables:
   - {fileID: 5237967535367607814, guid: 1edfe131259a2d3499befc871dbe5502, type: 3}
   - {fileID: 4699307936223670964, guid: 32164fb8e39bdef4bac1a2f85a5c1704, type: 3}
+  - {fileID: 8519084200727641600, guid: 3b5e2e59b5c92b545bc1de0f6bdd93fb, type: 3}
+  - {fileID: 2717804113709258945, guid: ebb73dce974d61c488329fc0cfc799ec, type: 3}
 --- !u!4 &1985295596
 Transform:
   m_ObjectHideFlags: 0

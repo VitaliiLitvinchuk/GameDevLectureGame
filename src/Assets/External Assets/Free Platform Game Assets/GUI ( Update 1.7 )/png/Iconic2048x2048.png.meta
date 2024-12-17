@@ -2462,7 +2462,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_112
+      name: Aid drop
       rect:
         serializedVersion: 2
         x: 738
@@ -2483,10 +2483,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_113
+      name: Air drop 2
       rect:
         serializedVersion: 2
-        x: 886
+        x: 884
         y: 516
         width: 128
         height: 129
@@ -2714,10 +2714,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_124
+      name: Damage drop
       rect:
         serializedVersion: 2
-        x: 738
+        x: 741
         y: 368
         width: 128
         height: 129
@@ -2735,12 +2735,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconic2048x2048_125
+      name: Decrease Money
       rect:
         serializedVersion: 2
-        x: 886
+        x: 882
         y: 368
-        width: 128
+        width: 135
         height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -3396,7 +3396,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Aid drop: 2139072762
+      Air drop 2: -1291151227
+      Damage drop: -159237358
       Danger Icon: 1091495502
+      Decrease Money: 1827729029
       Home: -300844888
       Iconic2048x2048_0: 46714210
       Iconic2048x2048_1: -809122552
@@ -3414,8 +3418,6 @@ TextureImporter:
       Iconic2048x2048_11: 106262299
       Iconic2048x2048_110: 642445891
       Iconic2048x2048_111: -1268130860
-      Iconic2048x2048_112: 2139072762
-      Iconic2048x2048_113: -1291151227
       Iconic2048x2048_114: -1807864128
       Iconic2048x2048_115: 1801918197
       Iconic2048x2048_116: -574098101
@@ -3427,8 +3429,6 @@ TextureImporter:
       Iconic2048x2048_121: -1034577174
       Iconic2048x2048_122: 332676686
       Iconic2048x2048_123: 715412169
-      Iconic2048x2048_124: -159237358
-      Iconic2048x2048_125: 1827729029
       Iconic2048x2048_126: 132515627
       Iconic2048x2048_127: 424674580
       Iconic2048x2048_128: 627700040

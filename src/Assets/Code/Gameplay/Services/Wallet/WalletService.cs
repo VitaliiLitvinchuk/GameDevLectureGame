@@ -11,6 +11,21 @@ namespace Assets.Code.Gameplay.Services.Wallet
 
         public void AddCoin() => _balance++;
 
+        public void SubtractCoins(int amount)
+        {
+            if (amount <= 0)
+                throw new ArgumentException("Amount must be greater than 0.");
+
+            if (amount > _balance)
+            {
+                _balance = 0;
+            }
+            else
+            {
+                _balance -= amount;
+            }
+        }
+
         public bool IsEnoughMoney(int money)
         {
             return Balance >= money;

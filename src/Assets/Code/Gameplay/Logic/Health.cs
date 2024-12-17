@@ -35,5 +35,18 @@ namespace Assets.Code.Gameplay.Logic
                 Death?.Invoke();
             }
         }
+
+        public void AddHealth(float healthToAdd)
+        {
+            if (healthToAdd <= 0)
+                throw new ArgumentException($"Health to add must be greater than 0.", nameof(healthToAdd));
+
+            CurrentHealth += healthToAdd;
+
+            if (CurrentHealth > MaxHealth)
+                CurrentHealth = MaxHealth;
+
+            Changed?.Invoke();
+        }
     }
 }

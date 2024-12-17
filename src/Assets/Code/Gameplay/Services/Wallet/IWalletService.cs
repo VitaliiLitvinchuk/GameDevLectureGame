@@ -9,5 +9,6 @@ namespace Assets.Code.Gameplay.Services.Wallet
         void AddCoin();
         bool IsEnoughMoney(int money);
         void Purchase(int price);
+        void SubtractCoins(int amount);
     }
 }
