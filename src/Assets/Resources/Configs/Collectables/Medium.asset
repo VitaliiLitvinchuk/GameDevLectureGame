@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51655320180c285458fa171730f9c97d, type: 3}
+  m_Name: Medium
+  m_EditorClassIdentifier: 
+  PriorityType: 2
+  Count: 8
+  CollectablePrefabs:
+  - {fileID: 4699307936223670964, guid: 32164fb8e39bdef4bac1a2f85a5c1704, type: 3}
+  - {fileID: 2717804113709258945, guid: ebb73dce974d61c488329fc0cfc799ec, type: 3}

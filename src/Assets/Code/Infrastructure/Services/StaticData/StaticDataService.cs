@@ -15,6 +15,7 @@ namespace Assets.Code.Infrastructure.Services.StaticData
         public SawConfig SawConfig { get; private set; }
         public PlayerConfig PlayerConfig { get; private set; }
         public HudConfig HudConfig { get; private set; }
+        public Dictionary<GeneralCollectablePriorityType, RandomCollectableSpawnerConfig> CollectableSpawnerConfigs { get; private set; }
 
         public void LoadAll()
         {
@@ -24,6 +25,12 @@ namespace Assets.Code.Infrastructure.Services.StaticData
             LoadHats();
             LoadFeatures();
             LoadSawConfig();
+            LoadRandomCollectableSpawnerConfigs();
+        }
+
+        private void LoadRandomCollectableSpawnerConfigs()
+        {
+            CollectableSpawnerConfigs = Resources.LoadAll<RandomCollectableSpawnerConfig>("Configs/Collectables").ToDictionary(x => x.PriorityType);
         }
 
         public HatConfig GetHatConfig(HatTypeId hatTypeId)
