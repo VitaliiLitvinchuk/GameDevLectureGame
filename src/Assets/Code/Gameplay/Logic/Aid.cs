@@ -1,6 +1,8 @@
+using Assets.Code.Data;
 using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Gameplay.View;
 using Assets.Code.Infrastructure.Services.Random;
+using Assets.Code.Infrastructure.Services.Sound;
 using UnityEngine;
 using Zenject;
 
@@ -26,14 +28,17 @@ namespace Assets.Code.Gameplay.Logic
         [Inject]
         private readonly IRandomService _randomService;
 
+        [Inject]
+        private readonly ISoundService _soundService;
+
         public bool IsCollected { get; private set; }
 
         public void Collect(Collector collector)
         {
             IsCollected = true;
-            AudioManager.instance.Play(SoundType.TakeDamage);
+            _soundService.Play(SoundType.TakeDamage);
 
-            float randomHealth = Mathf.Round(_randomService.Range(_randomHealthFrom, _randomHealthTo + 1));
+            float randomHealth = _randomService.RoundRange(_randomHealthFrom, _randomHealthTo + 1);
             collector.GetComponent<Health>().AddHealth(randomHealth);
 
             if (_moveFadeDestroyer == null)

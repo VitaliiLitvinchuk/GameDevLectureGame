@@ -1,4 +1,7 @@
+using Assets.Code.Data;
+using Assets.Code.Infrastructure.Services.Sound;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Code.Gameplay.Sounds
 {
@@ -7,11 +10,12 @@ namespace Assets.Code.Gameplay.Sounds
         [SerializeField]
         private SoundType type;
 
+        [Inject]
+        private readonly ISoundService _soundService;
+
         private void Awake()
         {
-            if (AudioManager.instance == null) return;
-
-            AudioManager.instance.ChangeSceneSound(type);
+            _soundService.ChangeSceneSound(type);
         }
     }
 }

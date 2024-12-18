@@ -1,7 +1,6 @@
-using System;
 using Assets.Code.Data;
-using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.Services.PlayerInventory;
+using Assets.Code.Infrastructure.Services.Sound;
 using Assets.Code.Infrastructure.Services.StaticData;
 using Assets.Code.StaticData;
 using UnityEngine;
@@ -24,6 +23,9 @@ namespace Assets.Code.Gameplay.View.UI
         [Inject]
         private IStaticDataService _staticDataService;
 
+        [Inject]
+        private ISoundService _soundService;
+
         private void Start()
         {
             UpdateView();
@@ -45,7 +47,7 @@ namespace Assets.Code.Gameplay.View.UI
                 return;
 
             _playerInventoryService.SelectNextHat();
-            AudioManager.instance.Play(SoundType.HatChange);
+            _soundService.Play(SoundType.HatChange);
             UpdateView();
         }
 

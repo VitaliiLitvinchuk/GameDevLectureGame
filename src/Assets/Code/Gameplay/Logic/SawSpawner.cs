@@ -23,6 +23,10 @@ namespace Assets.Code.Gameplay.Logic
         [Inject]
         private readonly IStaticDataService _staticDataService;
 
+        private const float _positionDangerIconShift = 1.5f;
+        private const float _positionSawShift = 0.75f;
+        private const float _fadeInAndDestroyDurationMultiplier = 0.8f;
+
         private SawConfig _sawConfig;
 
         private void Start()
@@ -47,25 +51,32 @@ namespace Assets.Code.Gameplay.Logic
 
         private void ShowDangerIcon(Vector3 position)
         {
-            GameObject dangerIcon = _instantiator.InstantiatePrefab(_sawConfig.DangerIcon, position + Vector3.up * 1.5f, Quaternion.identity, transform);
-
-            SpriteRenderer renderer = dangerIcon.GetComponent<SpriteRenderer>();
-            renderer.color = new Color(1, 1, 1, 0);
-            Tween tween = renderer.DOFade(1f, _sawConfig.ShowDangerTime * 0.8f);
-            tween.OnComplete(() =>
-            {
-                Destroy(dangerIcon);
-                tween.Kill();
-            });
+            GameObject dangerIcon = _instantiator.InstantiatePrefab(_sawConfig.DangerIcon, position + Vector3.up * _positionDangerIconShift, Quaternion.identity, transform);
+            FadeInAndDestroy(dangerIcon, _sawConfig.ShowDangerTime * _fadeInAndDestroyDurationMultiplier);
         }
 
         private void SpawnSaw(Vector3 position)
         {
             GameObject saw = _instantiator.InstantiatePrefab(_sawConfig.SawPrefab, position, Quaternion.identity, transform);
+            AnimateSaw(saw, position);
+        }
 
+        private void FadeInAndDestroy(GameObject obj, float duration)
+        {
+            SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
+            renderer.color = new Color(1, 1, 1, 0);
+            Tween tween = renderer.DOFade(1f, duration);
+            tween.OnComplete(() =>
+            {
+                Destroy(obj);
+                tween.Kill();
+            });
+        }
+
+        private void AnimateSaw(GameObject saw, Vector3 position)
+        {
             Vector3 startPos = saw.transform.position;
-
-            saw.transform.DOMoveY(position.y + 0.75f, _sawConfig.DurationIn).SetEase(Ease.OutBack)
+            saw.transform.DOMoveY(position.y + _positionSawShift, _sawConfig.DurationIn).SetEase(Ease.OutBack)
                 .OnComplete(() =>
                 {
                     saw.transform.DOMoveY(startPos.y, _sawConfig.DurationExist).SetEase(Ease.InBack)

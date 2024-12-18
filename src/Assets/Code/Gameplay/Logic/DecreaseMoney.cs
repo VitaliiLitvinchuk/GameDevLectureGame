@@ -1,8 +1,10 @@
+using Assets.Code.Data;
 using Assets.Code.Gameplay.Services.Wallet;
 using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Gameplay.View;
 using Assets.Code.Infrastructure.Services.Random;
 using Assets.Code.Infrastructure.Services.SaveLoad;
+using Assets.Code.Infrastructure.Services.Sound;
 using UnityEngine;
 using Zenject;
 
@@ -34,14 +36,19 @@ namespace Assets.Code.Gameplay.Logic
         [Inject]
         private readonly ISaveLoadService _saveLoadService;
 
+        [Inject]
+        private readonly ISoundService _soundService;
+
         public bool IsCollected { get; private set; }
 
         public void Collect(Collector collector)
         {
-            _walletService?.SubtractCoins((int)Mathf.Round(_randomService.Range(_decreaseMoneyFrom, _decreaseMoneyTo + 1)));
+            int amount = (int)_randomService.RoundRange(_decreaseMoneyFrom, _decreaseMoneyTo + 1);
+
+            _walletService?.SubtractCoins(amount);
             _saveLoadService?.SavePlayerProgress();
             IsCollected = true;
-            AudioManager.instance.Play(SoundType.PickupCoin);
+            _soundService.Play(SoundType.PickupCoin);
 
             if (_moveFadeDestroyer == null)
                 return;

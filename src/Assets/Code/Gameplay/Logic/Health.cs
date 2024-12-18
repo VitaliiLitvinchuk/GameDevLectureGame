@@ -1,6 +1,8 @@
 using System;
-using Assets.Code.Gameplay.Sounds;
+using Assets.Code.Data;
+using Assets.Code.Infrastructure.Services.Sound;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Code.Gameplay.Logic
 {
@@ -9,6 +11,9 @@ namespace Assets.Code.Gameplay.Logic
         public float CurrentHealth;
 
         public float MaxHealth { get; internal set; }
+
+        [Inject]
+        private readonly ISoundService _soundService;
 
         private void Start()
         {
@@ -25,12 +30,12 @@ namespace Assets.Code.Gameplay.Logic
                 throw new ArgumentException($"Health to substract must be greater than 0.", nameof(healthToSubstract));
 
             CurrentHealth -= healthToSubstract;
-            AudioManager.instance.Play(SoundType.TakeDamage);
+            _soundService.Play(SoundType.TakeDamage);
             Changed?.Invoke();
 
             if (CurrentHealth <= 0)
             {
-                AudioManager.instance.Play(SoundType.Death);
+                _soundService.Play(SoundType.Death);
                 CurrentHealth = 0;
                 Death?.Invoke();
             }

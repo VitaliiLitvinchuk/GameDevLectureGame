@@ -17,6 +17,8 @@ namespace Assets.Code.Infrastructure.Services.StaticData
         public HudConfig HudConfig { get; private set; }
         public Dictionary<GeneralCollectablePriorityType, RandomCollectableSpawnerConfig> CollectableSpawnerConfigs { get; private set; }
 
+        public Dictionary<SoundType, SoundConfig> SoundConfigs { get; private set; }
+
         public void LoadAll()
         {
             LoadPlayerConfig();
@@ -26,6 +28,12 @@ namespace Assets.Code.Infrastructure.Services.StaticData
             LoadFeatures();
             LoadSawConfig();
             LoadRandomCollectableSpawnerConfigs();
+            LoadSounds();
+        }
+
+        private void LoadSounds()
+        {
+            SoundConfigs = Resources.LoadAll<SoundConfig>("Configs/Sounds").ToDictionary(x => x.Type);
         }
 
         private void LoadRandomCollectableSpawnerConfigs()

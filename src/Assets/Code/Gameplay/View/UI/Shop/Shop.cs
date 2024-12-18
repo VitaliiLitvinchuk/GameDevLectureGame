@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Assets.Code.Data;
 using Assets.Code.Gameplay.Sounds;
-using Assets.Code.Infrastructure.Services.SaveLoad;
+using Assets.Code.Infrastructure.Services.Sound;
 using Assets.Code.Infrastructure.Services.StaticData;
 using Assets.Code.StaticData;
 using UnityEngine;
@@ -22,6 +22,9 @@ namespace Assets.Code.Gameplay.View.UI.Shop
 
         [Inject]
         private readonly IInstantiator _instantiator;
+
+        [Inject]
+        private readonly ISoundService _soundService;
 
         private readonly List<ShopItem> _shopItems = new();
 
@@ -77,7 +80,7 @@ namespace Assets.Code.Gameplay.View.UI.Shop
 
         private void OnBought()
         {
-            AudioManager.instance.Play(SoundType.Buy);
+            _soundService.Play(SoundType.Buy);
             UpdateShopItemsView();
         }
     }

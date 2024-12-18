@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Code.Infrastructure.Services.Random
 {
@@ -15,5 +16,7 @@ namespace Assets.Code.Infrastructure.Services.Random
         }
 
         public float Range(float min, float max) => UnityEngine.Random.Range(min, max);
+
+        public float RoundRange(float min, float max) => Mathf.Round(Range(min, max));
     }
 }

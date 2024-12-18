@@ -12,6 +12,7 @@ using Assets.Code.Infrastructure.Services.Random;
 using Assets.Code.Infrastructure.Services.SaveLoad;
 using Assets.Code.Infrastructure.Services.Scene;
 using Assets.Code.Infrastructure.Services.Shop;
+using Assets.Code.Infrastructure.Services.Sound;
 using Assets.Code.Infrastructure.Services.StaticData;
 using Zenject;
 
@@ -42,6 +43,7 @@ namespace Assets.Code.Infrastructure
             Container.Bind<IWalletService>().To<WalletService>().AsSingle();
             Container.Bind<IShopService>().To<ShopService>().AsSingle();
             Container.Bind<IPlayerInventoryService>().To<PlayerInventoryService>().AsSingle();
+            Container.Bind<ISoundService>().To<SoundService>().AsSingle();
         }
 
         private void BindFactories()

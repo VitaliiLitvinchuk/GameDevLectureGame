@@ -1,6 +1,8 @@
+using Assets.Code.Data;
 using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.GameStates.State;
 using Assets.Code.Infrastructure.GameStates.StateMachine;
+using Assets.Code.Infrastructure.Services.Sound;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -19,7 +21,10 @@ namespace Assets.Code.Gameplay.View.UI
         private Button _pauseButton;
 
         [Inject]
-        private IStateMachine _stateMachine;
+        private readonly IStateMachine _stateMachine;
+
+        [Inject]
+        private readonly ISoundService _soundService;
 
         private void Start()
         {
@@ -31,7 +36,7 @@ namespace Assets.Code.Gameplay.View.UI
 
         public void Pause()
         {
-            AudioManager.instance.Play(SoundType.PlayButton);
+            _soundService.Play(SoundType.PlayButton);
             _contentPanel.SetActive(true);
             _shadowPanel.SetActive(true);
             Time.timeScale = 0;
@@ -39,14 +44,14 @@ namespace Assets.Code.Gameplay.View.UI
 
         public void Home()
         {
-            AudioManager.instance.Play(SoundType.PlayButton);
+            _soundService.Play(SoundType.PlayButton);
             _stateMachine.Enter<LoadProgressState>();
             Time.timeScale = 1;
         }
 
         public void Resume()
         {
-            AudioManager.instance.Play(SoundType.PlayButton);
+            _soundService.Play(SoundType.PlayButton);
             _contentPanel.SetActive(false);
             _shadowPanel.SetActive(false);
             Time.timeScale = 1;
@@ -54,7 +59,7 @@ namespace Assets.Code.Gameplay.View.UI
 
         public void Restart()
         {
-            AudioManager.instance.Play(SoundType.PlayButton);
+            _soundService.Play(SoundType.PlayButton);
             _stateMachine.Enter<LoadLevelState, string>("Level");
             Time.timeScale = 1;
         }

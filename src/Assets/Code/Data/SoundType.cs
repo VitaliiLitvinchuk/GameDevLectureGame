@@ -1,4 +1,4 @@
-namespace Assets.Code.Gameplay.Sounds
+namespace Assets.Code.Data
 {
     public enum SoundType
     {

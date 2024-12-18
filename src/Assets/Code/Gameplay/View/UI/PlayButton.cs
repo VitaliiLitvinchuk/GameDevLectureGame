@@ -1,8 +1,8 @@
-using Assets.Code.Gameplay.Sounds;
+using Assets.Code.Data;
 using Assets.Code.Infrastructure.GameStates.State;
 using Assets.Code.Infrastructure.GameStates.StateMachine;
+using Assets.Code.Infrastructure.Services.Sound;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using Zenject;
 
@@ -17,6 +17,9 @@ namespace Assets.Code.Gameplay.View.UI
         [Inject]
         private readonly IStateMachine _stateMachine;
 
+        [Inject]
+        private readonly ISoundService _soundService;
+
         private void Awake()
         {
             _button.onClick.AddListener(OnButtonClicked);
@@ -29,8 +32,7 @@ namespace Assets.Code.Gameplay.View.UI
 
         private void OnButtonClicked()
         {
-            AudioManager.instance.Play(SoundType.PlayButton);
-            AudioManager.instance.ChangeSceneSound(SoundType.LevelMusic);
+            _soundService.Play(SoundType.PlayButton);
             _stateMachine.Enter<LoadLevelState, string>(LevelName);
         }
     }

@@ -1,8 +1,7 @@
 using Assets.Code.Data;
-using Assets.Code.Gameplay.Sounds;
 using Assets.Code.Infrastructure.Services.Input;
 using Assets.Code.Infrastructure.Services.PlayerInventory;
-using UnityEditor.UIElements;
+using Assets.Code.Infrastructure.Services.Sound;
 using UnityEngine;
 using Zenject;
 
@@ -22,6 +21,8 @@ namespace Assets.Code.Gameplay.Logic
         private readonly IInputService _inputService;
         [Inject]
         private readonly IPlayerInventoryService playerInventoryService;
+        [Inject]
+        private readonly ISoundService _soundService;
 
         private int _jumpCount = 0;
         private int _jumpLimit = 0;
@@ -43,7 +44,7 @@ namespace Assets.Code.Gameplay.Logic
             {
                 if (Time.time > _nextJumpTime && _inputService.GetJump())
                 {
-                    AudioManager.instance.Play(SoundType.Jump);
+                    _soundService.Play(SoundType.Jump);
                     _nextJumpTime = Time.time + _jumpDelay;
                     _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
                     _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);

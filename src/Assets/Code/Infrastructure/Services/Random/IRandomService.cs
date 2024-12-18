@@ -7,5 +7,6 @@ namespace Assets.Code.Infrastructure.Services.Random
     {
         T ChooseFromList<T>(List<T> collectables);
         float Range(float min, float max);
+        float RoundRange(float min, float max);
     }
 }

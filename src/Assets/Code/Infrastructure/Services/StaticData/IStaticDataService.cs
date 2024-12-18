@@ -10,6 +10,7 @@ namespace Assets.Code.Infrastructure.Services.StaticData
         HudConfig HudConfig { get; }
         SawConfig SawConfig { get; }
         Dictionary<GeneralCollectablePriorityType, RandomCollectableSpawnerConfig> CollectableSpawnerConfigs { get; }
+        Dictionary<SoundType, SoundConfig> SoundConfigs { get; }
         void LoadAll();
         LevelData GetLevelData(string levelName);
         IEnumerable<HatConfig> GetHatConfigs();
